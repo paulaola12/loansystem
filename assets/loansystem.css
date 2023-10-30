@@ -1,0 +1,54 @@
+.bodyshape{
+    height: 600px !important;
+}
+.sidebarcontent{
+    height: 60px !important;
+    border: 1px solid white;
+}
+.top-sidebarcontent{
+    height: 190px !important;
+    border: 1px solid green;
+}
+.pagination{
+  }
+  .borrower-form{
+	background-color: #1E441E;
+}
+.kasko{
+    margin-left:-338px !important
+}
+.kasko1{
+    margin-left: -325px;
+}
+.kasko2{
+    margin-left: -293px !important;
+}
+.kasko3{
+    margin-left: -349px !important;
+}
+/* .del-types{
+    border: 1px solid white;
+    text-decoration: none;
+    border-radius: 2px !important;
+} */
+.footer{
+    height: 70px !important; 
+}
+.type-move{
+    margin-left: -398px;   
+}
+.type-move2{
+    margin-left: -349px;
+}
+.plans-1{
+    margin-left: -340px !important;
+}
+.plans-2{
+    margin-left: -376px !important;
+}
+.plans-3{
+    margin-left: -240px !important;
+}
+.plans-move{
+    margin-left: -238px !important;   
+}
