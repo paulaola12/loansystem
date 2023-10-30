@@ -52,10 +52,10 @@ include_once "db.php";
        
     }
 
-    $type1 = new Loans();
-    $data = $type1 -> fetch_loan_data();
-    echo '<pre>';
-    print_r($data);
-    echo '</pre>';
+    // $type1 = new Loans();
+    // $data = $type1 -> fetch_loan_data();
+    // echo '<pre>';
+    // print_r($data);
+    // echo '</pre>';
 
 ?>
