@@ -127,60 +127,9 @@
                           </ul>
                          
                         </div>
-                        <div class="card-body">
-                            <table class="table table-dark table-striped-columns">
-                                <colgroup>
-                                    <col width="10%">
-                                    <col width="25%">
-                                    <col width="25%">
-                                    <col width="20%">
-                                    <col width="10%">
-                                    <col width="10%">
-                                </colgroup>
-                                <thead>
-                                  <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>Otto</td>
-                                    <td>
-                                        <a href="editloanprocess.php?=<?php ?>" class="h4 mx-2"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <!-- modal -->
-                                          <!-- Button trigger modal -->
-                                                  <!-- modal end -->
-                                        <a href="" class="h4"><i class="fa-solid fa-trash"></i></a>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
-                        </div>
-                                   <!-- pagination -->
-                          <nav aria-label="Page navigation example pagination">
-                            <ul class="pagination justify-content-end">
-                              <li class="page-item disabled">
-                                <a class="page-link">Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">1</a></li>
-                              <li class="page-item"><a class="page-link" href="#">2</a></li>
-                              <li class="page-item"><a class="page-link" href="#">3</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                              </li>
-                            </ul>
-                          </nav>
-                          <!-- pagination ends -->
-                          
+                        <div class="card-body" id="fetch">
+                           
+                        </div>       
                       </div>
                 </div>
                 <!-- card body ends here -->
@@ -198,4 +147,18 @@
   setTimeout(function(){
     testing.style.display = "none";
   }, 3000)
+  
+  // fetch data from Database
+
+function fetch(){
+ $.ajax({
+  url: 'loanlist_table.php',
+  type: 'POST',
+  success: function(response){
+   $('#fetch').html(response)
+  }
+ })
+
+}
+fetch();
   </script>
