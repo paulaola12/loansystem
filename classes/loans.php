@@ -103,14 +103,22 @@ include_once "db.php";
                 return $result;     
             }
 
+            public function ref(){
+                $sql = "SELECT * FROM loan_list";
+                $stmt = $this -> connect() -> prepare($sql);
+                $stmt -> execute();
+                $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+                return $result;
+            }
+
      }
                 //  $type = new Loans();
                 // echo $type -> delete(1);
 
             // $type1 = new Loans();
-            // $rows = $type1 -> fetch_loan_data();
+            // $result = $type1 -> ref();
             // echo '<pre>';
-            // print_r($rows);
+            // print_r($result);
             // echo '</pre>';
 
                 // $type1 = new Loans();

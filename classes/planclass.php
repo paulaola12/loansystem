@@ -78,6 +78,6 @@
         // $result = $datar -> fetch_loan(3);
         // print_r($result)
 
-        $data = new Plan();
-        echo $response = $data -> edit(12, 20, 20, 20)
+        // $data = new Plan();
+        // echo $response = $data -> edit(12, 20, 20, 20)
 ?>

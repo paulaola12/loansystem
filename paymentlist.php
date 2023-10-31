@@ -44,16 +44,16 @@ $rows = $type2 -> read();
                                         <p><b><?php echo $row['id'] ?></b></p> 
                                         </td>
                                         <td class="">
-                                             <p>Loan Reference No: <b></b></p>
+                                             <p><b><?php echo $row['ref_no'] ?></b></p>
                                         </td>
                                         <td class="">
-                                             <p>Type Name: <b><?php echo $row['payee'] ?> </b></p>
+                                             <p><b><?php echo $row['payee'] ?></b></p>
                                         </td>
                                         <td class="">
-                                             <p>Type Name: <b><?php echo $row['amount'] ?> </b></p>
+                                             <p><b><?php echo $row['amount'] ?> </b></p>
                                         </td>
                                         <td class="">
-                                             <p>Type Name: <b><?php echo $row['penalty'] ?> </b></p>
+                                             <p><b><?php echo $row['penalty_amount'] ?> </b></p>
                                         </td>
                                         <td>
                                       <a href="" class="h4 mx-2"  data-bs-target="#staticBackdrop"><i class="fa-solid fa-pen-to-square"></i></a>

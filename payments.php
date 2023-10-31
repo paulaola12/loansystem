@@ -1,5 +1,12 @@
 <?php
-  include_once "partials/header.php"
+  include_once "partials/header.php";
+  include_once "classes/loans.php";
+  $type1 = new Loans();
+  $result = $type1 -> ref();
+  // echo '<pre>';
+  // print_r($result);
+  // echo '</pre>';
+
 ?>
         <!-- body -->
         <div>
@@ -30,19 +37,38 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <div class="">
-          <label class="">Loan Reference Number</label>
-          <select class="col-7">
-            <option>we are here</option>
-          </select>
-        </div>
+
+        <form action="process/paymentprocess.php" method="post">
+            <div class="">
+              <label class="">Loan Reference Number</label><br>
+              <select class="col-7" name="ref">
+                <option></option>
+                <?php foreach($result as $resul){?>
+                  <option ><?php echo $resul['ref_no']?></option>
+                <?php }?>
+
+              </select>
+            </div>
+
+            <div class="">
+              <label class="">Payee Name</label><br>
+              <input class="col-7" type="text" name="payee">
+            </div>
+
+            <div class="">
+              <label class="">Amount</label><br>
+              <input class="col-7" type="number" name="amount">
+            </div>
+
+            <div class="">
+              <label class="">Penalty</label><br>
+              <input class="col-7" type="number" name="penalty">
+            </div>
+            <button name="btn" class="btn btn-primary my-3" data-bs-dismiss="modal">Save</button>
+        </form>
+
       </div>
-      <hr>
-      <div class="my-2">
-        <button type="button" class="btn btn-primary">Save</button>
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        
-      </div>
+  
     </div>
   </div>
 </div>
@@ -50,40 +76,8 @@
                           </ul>
                          
                         </div>
-                        <div class="card-body">
-                            <table class="table table-dark table-striped-columns">
-                                <colgroup>
-                                    <col width="10%">
-                                    <col width="25%">
-                                    <col width="25%">
-                                    <col width="20%">
-                                    <col width="10%">
-                                    <col width="10%">
-                                </colgroup>
-                                <thead>
-                                  <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    <td>Otto</td>
-                                    <td>
-                                        <a href="" class="h4 mx-2"><i class="fa-solid fa-pen-to-square"></i></a>
-                                        <a href="" class="h4"><i class="fa-solid fa-trash"></i></a>
-                                    </td>
-                                  </tr>
-                                </tbody>
-                              </table>
+                        <div class="card-body" id="fetch">
+                           
                         </div>
                                    <!-- pagination -->
                           <nav aria-label="Page navigation example pagination">
@@ -111,3 +105,57 @@
 <?php
  include_once "partials/footer.php"
 ?>
+
+<script type="text/javascript" src="jquery.js"></script>
+
+<script type="text/javascript">
+
+  var testing = document.getElementById("show");
+  setTimeout(function(){
+    testing.style.display = "none";
+  }, 3000)
+
+  //limisiting testuing
+
+   //Fetch All Records
+
+     function fetch(){
+ 
+       $.ajax({
+           url: 'paymentlist.php',
+           type: 'post',
+           success: function(response){
+               $('#fetch').html(response);
+           }
+       });
+   }
+           
+     fetch();
+
+   //testing
+   
+   $(document).on('click','#delete',function(e){
+  e.preventDefault();
+  // alert('we are here')
+  if(window.confirm('Are you sure you want to delete Data?')){
+
+  var ket = $(this).attr('value');
+  //  alert(ket)
+  $.ajax({
+    url: 'delete.php',
+    type: 'POST',
+    data: {delete_id: ket},
+    success: function(response){
+      fetch();
+      $('#message').html(response);
+    }
+  });
+}
+else{
+  return false;
+}
+  
+})
+
+  
+</script>

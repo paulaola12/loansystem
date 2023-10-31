@@ -2,8 +2,8 @@
     include_once "db.php";
 
     class Payments extends db{
-        public function write($plan, $interest, $overdue){
-            $sql = "INSERT INTO loan_plan(months,interest_percentage,penalty_rate) VALUES(?,?,?)";
+        public function write($ref, $payee, $amount, $penalty){
+            $sql = "INSERT INTO payments (months,interest_percentage,penalty_rate) VALUES(?,?,?)";
             $stmt = $this -> connect() -> prepare($sql);
             $stmt -> bindParam(1, $plan, PDO::PARAM_INT);
             $stmt -> bindParam(2, $interest, PDO::PARAM_INT);
@@ -12,28 +12,13 @@
             return $result;
 
         }
-
-        public function fetch_loan($id){
-            $sql = "SELECT * FROM loan_plan WHERE id = ?";
-            $stmt = $this -> connect() -> prepare($sql);
-            $stmt -> bindParam(1, $id, PDO::PARAM_INT);
-            $stmt -> execute();
-            $result = $stmt -> fetch(PDO::FETCH_ASSOC);
-            return $result;
-        }
-
-        public function loanplan(){
-            $sql = "SELECT * FROM loan_plan";
-            $stmt = $this -> connect() -> prepare($sql);
-            $stmt -> execute();
-            $response = $stmt -> fetchAll(PDO::FETCH_ASSOC);
-            return $response;
-        }
-
        
 
         public function read(){
-            $sql = "SELECT * FROM payments";
+            $sql = "SELECT payments.id, payments.amount, payments.payee, payments.penalty_amount, loan_list.ref_no
+            FROM payments
+            JOIN loan_list ON payments.id = loan_list.id;
+            ";
             $stmt = $this -> connect() -> prepare($sql);
             $stmt -> execute();
             $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
@@ -65,7 +50,7 @@
             
         }
     }
-        // $type2 = new plan();
+        // $type2 = new payments();
         // $result = $type2 -> read();
         // echo '<pre>';
         // print_r($result);
