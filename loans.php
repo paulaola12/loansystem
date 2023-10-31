@@ -37,6 +37,17 @@
 
                       <?php }; ?>
                       <!-- Session end -->
+                        <!-- Session start -->
+                      <?php if(isset($_SESSION['loanerror'])){?>
+
+                        <div id="show" class="alert alert-success" role="alert">
+                          <?php echo $_SESSION['loanerror']?>
+                        </div>
+
+                        <?php unset($_SESSION['loanerror'])?>
+
+                      <?php }; ?>
+                      <!-- Session end -->
 
                     <div class="card text-center">
                         <div class="card-header">
@@ -127,6 +138,7 @@
                           </ul>
                          
                         </div>
+                        <div id="message"></div>
                         <div class="card-body" id="fetch">
                            
                         </div>       
@@ -161,4 +173,27 @@ function fetch(){
 
 }
 fetch();
+
+$(document).on('click','#delete',function(e){
+  e.preventDefault();
+  // alert('we are here')
+  if(window.confirm('Are you sure you want to delete Data?')){
+
+  var ket = $(this).attr('value');
+  //  alert(ket)
+  $.ajax({
+    url: 'delete.php',
+    type: 'POST',
+    data: {delete_id: ket},
+    success: function(response){
+      fetch();
+      $('#message').html(response);
+    }
+  });
+}
+else{
+  return false;
+}
+  
+})
   </script>

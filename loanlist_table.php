@@ -2,7 +2,9 @@
     include_once "classes/loans.php";
     $type1 = new Loans();
     $rows = $type1 -> fetch_loan_data();
-    //  print_r($rows);
+    // echo '<pre>';
+    // print_r($rows);
+    // echo '</pre>';
 ?>
 <table class="table table-dark table-striped-columns" id="myTable">
                                 <colgroup>
@@ -101,11 +103,11 @@
                                       <?php endif; ?>
                                     </td>
                                     <td>
-                                        <a href="editloanprocess.php?=<?php ?>" class="h4 mx-2"><i class="fa-solid fa-pen-to-square"></i></a>
+                                        <a href="editloanprocess.php?id=<?php echo $row["borrower_id"]?>" class="h4 mx-2"><i class="fa-solid fa-pen-to-square"></i></a>
                                         <!-- modal -->
                                           <!-- Button trigger modal -->
                                                   <!-- modal end -->
-                                        <a href="" class="h4"><i class="fa-solid fa-trash"></i></a>
+                                        <a id="delete" value="<?php echo $row['borrower_id']?>" class="h4 btn btn-primary"><i class="fa-solid fa-trash"></i></a>
                                     </td>
                                   </tr>
                                   <?php       
@@ -114,6 +116,9 @@
                                   ?>
                                 </tbody>
                               </table>
+                              <div class="pagination-container">
+                            <ul class="pagination" id="pagination"></ul>
+                            </div>
 
  <script type="text/javascript" src="jquery.js"></script>
 

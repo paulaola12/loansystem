@@ -48,14 +48,77 @@ include_once "db.php";
             return $data;
          }
 
-     
-       
-    }
+         public function fetch_details($id){
+                    $sql = "SELECT 
+                    b.id AS borrower_id, 
+                    b.firstname, 
+                    b.middlename, 
+                    b.lastname, 
+                    b.contact_no, 
+                    b.email, 
+                    b.address, 
+                    ll.id AS loan_id, 
+                    ll.ref_no, 
+                    lt.type_name AS loan_type, 
+                    ll.purpose, 
+                    ll.amount, 
+                    lp.months AS loan_months, 
+                    lp.interest_percentage, 
+                    lp.penalty_rate, 
+                    ll.status
+                FROM borrowers AS b
+                JOIN loan_list AS ll ON b.id = ll.borrower_id
+                JOIN loan_plan AS lp ON ll.plan_id = lp.id
+                JOIN loan_types AS lt ON ll.loan_type_id = lt.id
+                WHERE b.id = ?;
+                ";
+            $stmt = $this -> connect() -> prepare($sql);
+            $stmt -> bindParam(1, $id, PDO::PARAM_INT);
+            $stmt -> execute();
+            $result = $stmt -> fetch(PDO::FETCH_ASSOC);
+            return $result;
+         }
 
-    // $type1 = new Loans();
-    // $data = $type1 -> fetch_loan_data();
-    // echo '<pre>';
-    // print_r($data);
-    // echo '</pre>';
+            public function edit($id, $type, $purpose, $amount, $plan){
+                $sql = "UPDATE loan_list SET loan_type_id = ?, plan_id = ?, purpose = ?, amount=? WHERE loan_list.borrower_id = ? ";
+                $stmt = $this -> connect() -> prepare($sql);
+                $stmt -> bindParam(1, $type, PDO::PARAM_INT);
+                $stmt -> bindParam(2, $plan, PDO::PARAM_INT);
+                $stmt -> bindParam(3, $purpose, PDO::PARAM_STR);
+                $stmt -> bindParam(4, $amount, PDO::PARAM_INT);
+                $stmt -> bindParam(5, $id, PDO::PARAM_INT);
+                $response = $stmt -> execute();
+                if($response){
+                    return true;
+                  }else{
+                    return false;
+                  }
+               }
+
+               public function delete($id){
+                $sql = "DELETE FROM loan_list WHERE loan_list.borrower_id = ?";
+                $stmt = $this -> connect() -> prepare($sql);
+                $stmt ->bindParam(1, $id, PDO::PARAM_INT);
+                $result = $stmt -> execute();
+                return $result;     
+            }
+
+     }
+                //  $type = new Loans();
+                // echo $type -> delete(1);
+
+            // $type1 = new Loans();
+            // $rows = $type1 -> fetch_loan_data();
+            // echo '<pre>';
+            // print_r($rows);
+            // echo '</pre>';
+
+                // $type1 = new Loans();
+                // echo $response = $type1 -> edit(6,2,"we are her",2000,1)
+
+        //         $data = new Plan();
+        // echo $response = $data -> edit(12, 20, 20, 20)
+  
+
 
 ?>
