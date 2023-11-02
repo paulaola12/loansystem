@@ -66,7 +66,7 @@
                           <div class="modal-dialog modal-dialog-scrollable">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel"></h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">
@@ -76,7 +76,7 @@
                                   <form action="process/loanprocess.php" method="post">
                                     <input type="hidden" name="random" value='<?php echo random_int(1000, 9999)?>'>
                                     <div class="my-2">
-                                      <label for="exampleFormControlInput1" class="h4 text-color kasko"><b>Borrower</b></label>
+                                      <label class="h5 text-color" style="margin-left: -370px"><b>Borrower</b></label>
                                       <select name="borrower" class="form-select" id="floatingSelectDisabled" aria-label="Floating label disabled select example" >
                                       <option value = '0'>Select Borrower</option>
                                       <?php foreach($result as $resul){?>
@@ -86,7 +86,7 @@
                                     </div>
 
                                     <div class="my-2">
-                                      <label for="exampleFormControlInput1" class="h4 text-color kasko1"><b>Loan Plans</b></label>
+                                      <label for="exampleFormControlInput1" class="h5 text-color" style="margin-left: -350px"><b>Loan Plans</b></label>
                                       <select name="loan_plans" class="form-select" id="floatingSelectDisabled" aria-label="Floating label disabled select example">
                                         <option selected>Select Loan Plans</option>
                                         <?php foreach($response as $respo){?>
@@ -96,7 +96,7 @@
                                     </div>
 
                                     <div class="my-2">
-                                      <label for="exampleFormControlInput1" class="h4 text-color kasko1"><b>Loan Type</b></label><br>
+                                      <label class="h5 text-color" style="margin-left: -358px"><b>Loan Type</b></label><br>
                                       <select name="loan_type" class="form-select" id="floatingSelectDisabled" aria-label="Floating label disabled select example">
                                         <option selected>Select Loan Type</option>
                                         <?php foreach($loant as $loan){?>
@@ -106,13 +106,13 @@
                                     </div>
 
                                     <div class="my-2">
-                                      <label for="exampleFormControlInput1" class=" h4 text-color kasko2"><b>Loan Amount</b></label>
-                                      <input name="loan_amount" type="number" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                                      <label class=" h5 text-color" style="margin-left: -330px"><b>Loan Amount</b></label>
+                                      <input name="loan_amount" type="number" class="form-control" placeholder="Enter Loan Amount">
                                     </div>
           
                                     <div class="my-2">
-                                      <label for="exampleFormControlInput1" class=" h4 text-color kasko3"><b>Purpose</b></label>
-                                      <textarea name="loan_purpose" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                                      <label  class="h5 text-color"  style="margin-left: -378px"><b>Purpose</b></label>
+                                      <textarea name="loan_purpose" class="form-control" style="height: 100px" placeholder="Purpose"></textarea>
                                     </div>
 
                                     <div class="col-12 mt-2 mb-3">

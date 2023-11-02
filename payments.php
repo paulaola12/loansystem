@@ -45,16 +45,16 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">New Payments</h1>
+        <h1 class="modal-title fs-5" id="staticBackdropLabel"></h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
 
         <form action="process/paymentprocess.php" method="post">
             <div class="">
-              <label class="">Loan Reference Number</label><br>
-              <select class="col-7" name="ref">
-                <option></option>
+              <label class="" style="margin-left:-183px; font-size:19px">Loan Reference Number</label><br>
+              <select class="col-10" name="ref" style="height:30px">
+                <option>Please Select Ref Number</option>
                 <?php foreach($result as $resul){?>
                   <option value="<?php echo $resul['id']?>"><?php echo $resul['ref_no']?></option>
                 <?php }?>
@@ -63,20 +63,22 @@
             </div>
 
             <div class="">
-              <label class="">Payee Name</label><br>
-              <input class="col-7" type="text" name="payee">
+              <label class="mt-3" style="margin-left:-280px; font-size:19px" >Payee Name</label><br>
+              <input class="col-10" type="text" name="payee" style="height:30px">
             </div>
 
             <div class="">
-              <label class="">Amount</label><br>
-              <input class="col-7" type="number" name="amount">
+              <label class="mt-3" style="margin-left:-320px; font-size:19px">Amount</label><br>
+              <input class="col-10" type="number" name="amount" style="height:30px">
             </div>
 
             <div class="">
-              <label class="">Penalty</label><br>
-              <input class="col-7" type="number" name="penalty">
+              <label class="mt-3" style="margin-left:-320px; font-size:19px">Penalty</label><br>
+              <input class="col-10" type="number" name="penalty" style="height:30px">
             </div>
-            <button name="btn" class="btn btn-primary my-3" data-bs-dismiss="modal">Save</button>
+            <div class="text-center">
+              <button name="btn" class="btn btn-primary my-3" data-bs-dismiss="modal">Save</button>
+            </div>
         </form>
 
       </div>

@@ -45,7 +45,7 @@ include_once "db.php";
             foreach($result as $row){
                 $data[] = $row;
             }
-            return $data;
+              return $data;
          }
 
          public function fetch_details($id){

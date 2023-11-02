@@ -2,7 +2,7 @@
 include_once "classes/loantypewrite.php";
 
     $id = $_POST['delete_id'];
-    echo $id;
+//     echo $id;
     
     $type = new LoanT();
     $delete = $type -> delete($id);

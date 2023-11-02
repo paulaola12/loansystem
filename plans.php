@@ -36,7 +36,7 @@ session_start();
                               <!-- modal -->
                                                             <!-- Button trigger modal -->
                               <button type="button"  class="btn btn-green text-white"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                                Add New Loan Types
+                                Add New Loan Plan
                               </button>
 
                               <!-- Modal -->
@@ -44,7 +44,7 @@ session_start();
                                 <div class="modal-dialog">
                                   <div class="modal-content">
                                     <div class="modal-header">
-                                      <h1 class="modal-title fs-5" id="staticBackdropLabel">Loan Types</h1>
+                                      <h1 class="modal-title fs-5" id="staticBackdropLabel"></h1>
                                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
 
@@ -52,18 +52,18 @@ session_start();
                                     <div class="modal-body">
                                      <form action="process/plantypes.php" method="post">
                                      <div class="form-group">
-                                          <label class="plans-move">Plan (Months)</label>
+                                          <label class="mt-2 mb-2" style="margin-left: -365px">Plan (Months)</label>
                                           <input name="plan" type="number" class="form-control">
                                         </div>
                                         <div class="form-group">
-                                          <label class="plans-move">Interest(%)</label>
+                                          <label class="mt-2 mb-2" style="margin-left: -379px">Interest(%)</label>
                                           <input name="interest" type="number" class="form-control"></textarea>
                                         </div> 
                                         <div class="form-group">
-                                          <label class="plans-move">Mohtly Over Due Payment(%)</label>
+                                          <label class="mt-2 mb-2" style="margin-left: -255px">Mohtly Over Due Payment(%)</label>
                                           <input name="overdue" type="number" class="form-control"></textarea>
                                         </div>
-                                        <button name="btn" class="mt-3 mb-2">Submit</button>
+                                        <button name="btn" class="mt-3 mb-2 btn btn-primary">Submit</button>
                                      </form>
                                   </div>
                                 </div>

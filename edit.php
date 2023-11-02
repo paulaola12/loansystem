@@ -17,27 +17,28 @@
                     <!-- body starts here -->
                     <!-- card body -->
                 <div class="col-1"></div>
-                <div class="col-7 bg-light bodyshape mt-3">
-                    <h1 class="text-center">Payments List</h1>
+                <div class="col-6 bodyshape">
+                    <h1 class="text-center mb-4"><b>Edit Loan Type</b></h1>
                     <div class="card text-center">
                         <div class="card-header">
                           <ul class="nav nav-pills card-header-pills">
-                            Edit Page
+                            
                           </ul>
                          
                         </div>
+                    <div class="" style="margin-left: 80px">
                         <div class="card-body">
                         <form action="process/editprocess.php" method="post">
                             <input name="ida" type="hidden" value="<?php echo $result['id']?>"/>
                             <div class="row my-3"> 
-                                <div class="col-8">
-                                    <label class=""> Form Type</label>
+                                <div class="col-10">
+                                    <label class="h5 mb-2 mt-2"> Form Type</label>
                                     <input name="loan_type" id="type" class="form-control" value="<?php echo $result['type_name']?>"/>
                                 </div>
                             </div>
                             <div class="row my-3"> 
-                                <div class="col-8">
-                                    <label class=""> Description</label>
+                                <div class="col-10">
+                                    <label class="h5 mb-2 mt-2"> Description</label>
                                     <textarea name="description" id="type" cols="30" rows="2" class="form-control"><?php echo $result['type_name']?></textarea>
                                 </div>
                             </div>
@@ -47,7 +48,8 @@
                                     <button name="btn" class="text-center btn btn-primary btn-lg" >Save</button>
                                 </div>
                             </div>
-                    </form>
+                       </form>
+                    </div>
                         </div>
                        
                           

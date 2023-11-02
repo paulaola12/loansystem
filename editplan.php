@@ -21,7 +21,7 @@ session_start();
                     <!-- body starts here -->
                     <!-- card body -->
                 <div class="col-1"></div>
-                <div class="col-7 bg-light bodyshape mt-3">
+                <div class="col-6 bodyshape">
                 <?php if(isset($_SESSION["plan_update"])){?>
 
                     <div id="show" class="alert alert-success" role="alert">
@@ -32,44 +32,45 @@ session_start();
                         <?php unset($_SESSION["plan_update"])?>
                     <?php }?>
                     <!-- session end -->
-                    <h1 class="text-center">Edit Plan</h1>
+                    <h1 class="text-center mb-3">Edit Plan</h1>
                     <div class="card text-center">
                         <div class="card-header">
                           <ul class="nav nav-pills card-header-pills">
-                            Edit Page
+                            
                           </ul>
                          
                         </div>
-                        <div class="card-body">
-                        <form action="process/edittype.php" method="post">
-                            <input name="id" type="hidden" value="<?php echo $result['id']?>"/>
-                            <div class="row my-3"> 
-                                <div class="col-8">
-                                    <label class=""> Plan (Months)</label>
-                                    <input name="months" type="num"  class="form-control" value="<?php echo $result['months']?>"/>
-                                </div>
-                            </div>
-                            <div class="row my-3"> 
-                                <div class="col-8">
-                                    <label class=""> Interest(%)</label>
-                                    <input name="interest" type="num" class="form-control" value="<?php echo $result['interest_percentage']?>">
-                                </div>
-                            </div>
-                            <div class="row my-3"> 
-                                <div class="col-8">
-                                    <label class=""> Monthly Over Due Payment</label>
-                                    <input name="overdue" type="num" class="form-control" value="<?php echo $result['penalty_rate']?>">
-                                </div>
-                            </div>
+                        <div class="" style="margin-left:60px">
+                                <div class="card-body">
+                                     <form action="process/edittype.php" method="post">
+                                            <input name="id" type="hidden" value="<?php echo $result['id']?>"/>
+                                            <div class="row my-3"> 
+                                                <div class="col-10">
+                                                    <label class=""> Plan (Months)</label>
+                                                    <input name="months" type="num"  class="form-control" value="<?php echo $result['months']?>"/>
+                                                </div>
+                                            </div>
+                                            <div class="row my-3"> 
+                                                <div class="col-10">
+                                                    <label class=""> Interest(%)</label>
+                                                    <input name="interest" type="num" class="form-control" value="<?php echo $result['interest_percentage']?>">
+                                                </div>
+                                            </div>
+                                            <div class="row my-3"> 
+                                                <div class="col-10">
+                                                    <label class=""> Monthly Over Due Payment</label>
+                                                    <input name="overdue" type="num" class="form-control" value="<?php echo $result['penalty_rate']?>">
+                                                </div>
+                                            </div>
 
-                            <div class="row my-3">
-                                <div class="col-8">
-                                    <button name="btn" class="text-center btn btn-primary btn-lg" >Save</button>
+                                            <div class="row my-3">
+                                                <div class="col-10">
+                                                    <button name="btn" class="text-center btn btn-primary btn-lg" >Save</button>
+                                                </div>
+                                            </div>
+                                        </form>
                                 </div>
-                            </div>
-                    </form>
-                        </div>
-                       
+                       </div> 
                           
                       </div>
                 </div>
