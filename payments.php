@@ -17,15 +17,27 @@
                    <!-- side bar ends -->
                     <!-- body starts here -->
                     <!-- card body -->
-                <div class="col-10 bg-light bodyshape mt-3">
-                    <h1 class="text-center">Payments List</h1>
+                <div class="col-10 bodyshape ">
+                    <h1 class="text-center"><b>Payments List</b></h1>
+                        <!-- session -->
+                        <!-- pop up -->
+                        <?php if(isset($_SESSION["payments"])){?>
+
+                    <div id="show" class="alert alert-success" role="alert">
+                              <?php echo $_SESSION["payments"]?>
+                          </div>
+                          <!-- ends here -->
+
+                          <?php unset($_SESSION["payments"])?>
+                      <?php }?>
+<!-- session end -->
                     <div class="card text-center">
                         <div class="card-header">
                           <ul class="nav nav-pills card-header-pills">
                            <!-- modal -->
                             <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-  Launch static
+<button type="button"  class="btn btn-green text-white"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+  New Payment
 </button>
 
 <!-- Modal -->
@@ -44,7 +56,7 @@
               <select class="col-7" name="ref">
                 <option></option>
                 <?php foreach($result as $resul){?>
-                  <option ><?php echo $resul['ref_no']?></option>
+                  <option value="<?php echo $resul['id']?>"><?php echo $resul['ref_no']?></option>
                 <?php }?>
 
               </select>
@@ -76,29 +88,19 @@
                           </ul>
                          
                         </div>
+                        <div id="message"></div>
                         <div class="card-body" id="fetch">
                            
                         </div>
-                                   <!-- pagination -->
-                          <nav aria-label="Page navigation example pagination">
-                            <ul class="pagination justify-content-end">
-                              <li class="page-item disabled">
-                                <a class="page-link">Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">1</a></li>
-                              <li class="page-item"><a class="page-link" href="#">2</a></li>
-                              <li class="page-item"><a class="page-link" href="#">3</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                              </li>
-                            </ul>
-                          </nav>
-                          <!-- pagination ends -->
+                      
                           
                       </div>
                 </div>
                 <!-- card body ends here -->
                 <!-- body ends here -->
+                <?php
+                include_once "partials/footer.php"
+                ?> 
             </div>
         </div>
         <!-- body 2 -->
@@ -142,7 +144,7 @@
   var ket = $(this).attr('value');
   //  alert(ket)
   $.ajax({
-    url: 'delete.php',
+    url: 'deletepay.php',
     type: 'POST',
     data: {delete_id: ket},
     success: function(response){

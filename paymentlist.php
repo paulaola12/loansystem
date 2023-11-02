@@ -1,22 +1,17 @@
 <?php
 include_once "classes/payments.php";
+include_once "classes/loans.php";
+$type1 = new Loans();
+$result = $type1 -> ref();
+// echo '<pre>';
 $type2 = new Payments();
 $rows = $type2 -> read();
 //  echo '<pre>';
 //  print_r($rows);
 //  echo '</pre>';
-// print_r($type);
-//  if(isset($_GET["id"])){
-//   $id = $_GET["id"];
-//   echo $id;
-
-//   $type1 = new LoanT();
-//   $result = $type1 -> fetch_details($id);
-// }
-
 ?>
 
-<table class="table table-bordered table-hover" id="myTable">
+<table class="table table-dark table-striped-columns" id="myTable">
                                 <thead>
                                     <tr>
                                         <th class="text-center">#</th>
@@ -56,9 +51,8 @@ $rows = $type2 -> read();
                                              <p><b><?php echo $row['penalty_amount'] ?> </b></p>
                                         </td>
                                         <td>
-                                      <a href="" class="h4 mx-2"  data-bs-target="#staticBackdrop"><i class="fa-solid fa-pen-to-square"></i></a>
-                                      <a id="" value="<?php echo $row ['id']?>" class="h4 btn btn-primary"><i class="fa-solid fa-trash"></i></a>
-                                    
+                                      <a href="editpaymentprocess.php?id=<?php echo $row ["id"]?>" class="h4 mx-2"  data-bs-target="#staticBackdrop"><i class="fa-solid fa-pen-to-square"></i></a>
+                                      <a id="delete" value="<?php echo $row ['id']?>" class="h4 btn btn-primary"><i class="fa-solid fa-trash"></i></a>
                                             
                                     </td>
                                     </tr>
@@ -81,7 +75,7 @@ $(document).ready(function() {
     var tbody = table.find('tbody');
     var rows = tbody.find('tr');
     var numRows = rows.length;
-    var numPerPage = 3; // Number of rows per page
+    var numPerPage = 4; // Number of rows per page
 
     // Calculate the number of pages
     var numPages = Math.ceil(numRows / numPerPage);

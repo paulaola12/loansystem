@@ -19,8 +19,8 @@ session_start();
                     <!-- body starts here -->
                     <!-- card body -->
                     
-                <div class="col-10 bg-light bodyshape mt-3">
-                    <h1 class="text-center">Loan Plan</h1>
+                <div class="col-10 bodyshape">
+                    <h1 class="text-center"><b>Loan Types</b></h1>
                     <!-- session -->
                         <!-- pop up -->
                         <?php if(isset($_SESSION["add_error"])){?>
@@ -50,7 +50,7 @@ session_start();
                           <ul class="nav nav-pills card-header-pills">
                               <!-- modal -->
                                                             <!-- Button trigger modal -->
-                              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                              <button type="button"class="btn btn-green text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 Add New Loan Types
                               </button>
 
@@ -110,12 +110,13 @@ session_start();
                 </div>
                 <!-- card body ends here -->
                 <!-- body ends here -->
+                <?php
+                include_once "partials/footer.php"
+                ?>
             </div>
         </div>
         <!-- body 2 -->
-<?php
- include_once "partials/footer.php"
-?>
+
     <script type="text/javascript" src="jquery.js"></script>
 
 <script type="text/javascript">

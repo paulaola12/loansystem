@@ -16,8 +16,8 @@ session_start();
                     <!-- body starts here -->
                     <!-- card body -->
                     
-                <div class="col-10 bg-light bodyshape mt-3">
-                    <h1 class="text-center">Loan Plan</h1>
+                <div class="col-10 bodyshape ">
+                    <h1 class="text-center"><b>Loan Plan</b></h1>
                     <!-- session -->
                         <!-- pop up -->
                         <?php if(isset($_SESSION["plan_error"])){?>
@@ -35,7 +35,7 @@ session_start();
                           <ul class="nav nav-pills card-header-pills">
                               <!-- modal -->
                                                             <!-- Button trigger modal -->
-                              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                              <button type="button"  class="btn btn-green text-white"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                                 Add New Loan Types
                               </button>
 
@@ -79,32 +79,19 @@ session_start();
                         </div>
 
                         <!-- ends -->
-                                   <!-- pagination -->
-                          <!-- <nav aria-label="Page navigation example pagination">
-                            <ul class="pagination justify-content-end">
-                              <li class="page-item disabled">
-                                <a class="page-link">Previous</a>
-                              </li>
-                              <li class="page-item"><a class="page-link" href="#">1</a></li>
-                              <li class="page-item"><a class="page-link" href="#">2</a></li>
-                              <li class="page-item"><a class="page-link" href="#">3</a></li>
-                              <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                              </li>
-                            </ul>
-                          </nav>
-                          pagination ends -->
+                      
                           
                       </div>
                 </div>
                 <!-- card body ends here -->
                 <!-- body ends here -->
+                <?php
+                include_once "partials/footer.php"
+                ?>
             </div>
         </div>
         <!-- body 2 -->
-<?php
- include_once "partials/footer.php"
-?>
+
    <script type="text/javascript" src="jquery.js"></script>
 
    <script type="text/javascript">

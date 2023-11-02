@@ -5,7 +5,7 @@ $rows = $type1 -> fetch_type_data();
 // print_r($type);
  if(isset($_GET["id"])){
   $id = $_GET["id"];
-  echo $id;
+//   echo $id;
 
   $type1 = new LoanT();
   $result = $type1 -> fetch_details($id);
@@ -13,7 +13,7 @@ $rows = $type1 -> fetch_type_data();
 
 ?>
 
-<table class="table table-bordered table-hover" id="myTable">
+<table class="table table-dark table-striped-columns" id="myTable">
                                 <thead>
                                     <tr>
                                         <th class="text-center">#</th>

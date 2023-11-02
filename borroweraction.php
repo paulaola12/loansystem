@@ -6,7 +6,7 @@ $rows = $type1 -> fetch_type_data();
 
 if(isset($_GET["id"])){
   $id = $_GET["id"];
-  echo $id;
+  // echo $id;
 
   $type1 = new LoanT();
   $result = $type1 -> fetch_details($id);
@@ -80,7 +80,7 @@ $(document).ready(function() {
     var tbody = table.find('tbody');
     var rows = tbody.find('tr');
     var numRows = rows.length;
-    var numPerPage = 4; // Number of rows per page
+    var numPerPage = 1; // Number of rows per page
 
     // Calculate the number of pages
     var numPages = Math.ceil(numRows / numPerPage);

@@ -1,5 +1,11 @@
+body{
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;	
+	font-family: arial,verdana,sans-serf;
+}
 .bodyshape{
-    height: 600px !important;
+    height: 670px !important;
 }
 .sidebarcontent{
     height: 60px !important;
@@ -33,6 +39,8 @@
 } */
 .footer{
     height: 70px !important; 
+    width: 100% !important;
+    background-color:#426A5A !important;
 }
 .type-move{
     margin-left: -398px;   
@@ -51,4 +59,8 @@
 }
 .plans-move{
     margin-left: -238px !important;   
+}
+.btn-green{
+    background-color:#7FB685 !important;
+    font-size: 19px !important;
 }

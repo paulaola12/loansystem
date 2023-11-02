@@ -27,8 +27,8 @@
 
                                     <td>
                                         <p>Years/Months: <?php echo $row['months']?></p><br>
-                                        <p>Interest: <?php echo $row['interest_percentage']?></p><br>
-                                        <p>Interest: <?php echo $row['penalty_rate']?></p><br>
+                                        <p>Interest: <?php echo $row['interest_percentage']?>%</p><br>
+                                        <p>Penalty-rate: <?php echo $row['penalty_rate']?>%</p><br>
                                     </td>
                                     <td>
                                       <a href="editplan.php?id=<?php echo $row['id']?>" class="h4 mx-2"><i class="fa-solid fa-pen-to-square"></i></a>

@@ -1,5 +1,5 @@
 <hr>
-    <div class="footer bg-primary">
+    <div class="footer" style="background-color:#426A5A">
     </div>
     <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
 </body>

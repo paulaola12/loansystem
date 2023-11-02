@@ -39,7 +39,7 @@
                                         <p>Address:<?php echo $row['address']?> </p>
                                     </td>
                                     <td>
-                                        <p>Reference Number:<?php $row['ref_no']?></p>
+                                        <p>Reference:<?php $row['ref_no']?></p>
                                         <p>Loan Type:<?php echo $row['loan_type']?></p>
                                         <p>Plan:<?php echo $row['loan_months']?> Years [<?php echo $row['interest_percentage']?>%, <?php echo $row['penalty_rate']?>%]</p>
                                         <p>Amount:<?php echo $row['amount']?> </p>

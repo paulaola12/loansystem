@@ -1,25 +1,27 @@
 <?php
 session_start();
-include_once "../classes/planclass.php";
+include_once "../classes/payments.php";
     if($_POST){
         if(isset($_POST["btn"])){
-            $ref = $_POST['ref'];
+            $id = $_POST['ref'];
             $payee = $_POST['payee'];
             $amount = $_POST["amount"];
             $penalty = $_POST["penalty"];
             
-            echo $ref, $payee, $amount, $penalty;
-            // if(empty($loan_type) || empty($loan_desc)){
-            //     $_SESION["edit"] ="All Fields are Required";
-            //     header("location:../edit.php");
-            // }
+            // echo $id, $payee, $amount, $penalty;
 
-            // $edit = new LoanT();
-            // $response = $edit -> edit($id, $loan_type, $loan_desc);
-            // if($response){
-            //     $_SESSION['edit'] = 'Update Was Successful';
-            //     header('location:../types.php');
-            // }
+            if(empty($id) || empty($payee) || empty($amount) || empty($penalty)){
+                $_SESION["payments"] ="All Fields are Required";
+                header("location:../payments.php");
+            }
+
+             $result = new payments();
+             $response = $result -> write($id, $payee, $amount, $penalty);
+             if($response){
+                $_SESSION["payments"] = "Account Created Successfully";
+                header("location:../payments.php");
+               }
+
 
         }
     }

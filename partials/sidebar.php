@@ -1,6 +1,6 @@
 <div class="row">
                    <!-- side bar -->
-                <div class="col-2 bg-primary bodyshape">
+                <div class="col-2 bodyshape" style="background-color:#426A5A">
                   <div class="row">
                       <div class="col top-sidebarcontent "></div>
                   </div>

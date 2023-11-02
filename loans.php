@@ -23,8 +23,8 @@
                     <!-- side bar ends -->
                     <!-- body starts here -->
                     <!-- card body -->
-                <div class="col-10 bg-light bodyshape mt-3">
-                    <h1 class="text-center">Loan List</h1>
+                <div class="col-10 bodyshape">
+                    <h1 class="text-center"><b>Loans</b></h1>
 
                       <!-- Session start -->
                       <?php if(isset($_SESSION['editprocess'])){?>
@@ -55,8 +55,8 @@
                             <!-- <li class="nav-item">
                               <a class="nav-link active mx-3" href="#">Active</a>
                             </li> -->
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                              Launch static backdrop modal
+                            <button type="button" class="btn btn-green text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                              <b>Create New Application</b>
                             </button>
                             <!-- modal -->
                               <!-- Button trigger modal -->
@@ -146,12 +146,13 @@
                 </div>
                 <!-- card body ends here -->
                 <!-- body ends here -->
+                <?php
+ include_once "partials/footer.php"
+?>
             </div>
         </div>
         <!-- body 2 -->
-<?php
- include_once "partials/footer.php"
-?>
+
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript">
 

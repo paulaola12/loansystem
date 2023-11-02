@@ -11,8 +11,8 @@ session_start();
            <!-- side bar -->
                     <!-- body starts here -->
                     <!-- card body -->
-                <div class="col-10 bg-light bodyshape mt-3">
-                    <h1 class="text-center">Borrowers List</h1>
+                <div class="col-10  bodyshape">
+                    <h1 class="text-center"><b>Borrowers List</b></h1>
                        <!-- session -->
                         <!-- pop up -->
                         <?php if(isset($_SESSION["borrower"])){?>
@@ -32,7 +32,7 @@ session_start();
 
                          <!-- Modal -->
                             <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                    <button type="button"  class="btn btn-green text-white"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                       New Borrower
                     </button>
 
@@ -114,12 +114,12 @@ session_start();
                 </div>
                 <!-- card body ends here -->
                 <!-- body ends here -->
+                <?php
+                  include_once "partials/footer.php"
+                  ?>
             </div>
         </div>
         <!-- body 2 -->
-<?php
- include_once "partials/footer.php"
-?>
 
 <script type="text/javascript" src="jquery.js"></script>
 
