@@ -59,8 +59,19 @@
             $response = $stmt -> execute();
             return $response;
            }
+
+           public function pay_today(){
+            $sql = "SELECT SUM(amount) AS total_amount FROM payments WHERE DATE(date_created) = CURDATE();";
+            $stmt = $this -> connect() -> prepare($sql);
+            $stmt -> execute();
+            $today = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+            return $today;
+        }
        
     }
+            // $data = new Payments();
+            // $response = $data -> pay_today();
+            // print_r($response);
     
             //  $data = new Payments();
             // echo $response = $data -> edit($id, $lid, $payee, $amount, $penalty)

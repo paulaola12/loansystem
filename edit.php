@@ -5,6 +5,7 @@
     $id = $_GET['id'];
     $type1 = new LoanT();
     $result = $type1 -> fetch_details($id);
+    print_r($result);
   }
 ?>
         <!-- body -->

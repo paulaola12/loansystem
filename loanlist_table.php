@@ -2,9 +2,9 @@
     include "classes/loans.php";
     $type1 = new Loans();
     $rows = $type1 -> fetch_loan_data();
-    echo '<pre>';
-    print_r($rows);
-    echo '</pre>';
+    // echo '<pre>';
+    // print_r($rows);
+    // echo '</pre>';
 ?>
 <table class="table table-dark table-striped-columns" id="myTable">
                                 <colgroup>

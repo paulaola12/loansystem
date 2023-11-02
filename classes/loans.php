@@ -111,7 +111,18 @@ include_once "db.php";
                 return $result;
             }
 
+            public function active(){
+                $sql = "SELECT COUNT(*) AS active_loan FROM loan_list";
+                $stmt = $this -> connect() -> prepare($sql);
+                $stmt -> execute();
+                $response = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+                return $response;
+            }
+
      }
+                // $type = new Loans();
+                // $response = $type -> active();
+                // print_r($response)
                 //  $type = new Loans();
                 // echo $type -> delete(1);
 

@@ -64,6 +64,14 @@
             return $result;
             
         }
+
+        public function current_plans(){
+            $sql = "SELECT COUNT(*) AS current_plans FROM loan_plan";
+            $stmt = $this -> connect() -> prepare($sql);
+            $stmt -> execute();
+            $plans = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+            return $plans;
+        }
     }
         // $type2 = new plan();
         // $result = $type2 -> read();

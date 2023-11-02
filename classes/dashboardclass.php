@@ -1,23 +1,10 @@
 <?php
     include_once "db.php";
 
-    class Borrow extends db{
-        public function add_borrower($first, $last, $middle, $contact, $address, $email, $tax){
-            $sql = "INSERT INTO borrowers(firstname,middlename,lastname,contact_no,address,email,tax_id) VALUES(?,?,?,?,?,?,?)";
-            $stmt = $this -> connect() -> prepare($sql);
-            $stmt -> bindParam(1, $first, PDO::PARAM_STR);
-            $stmt-> bindParam(2, $last, PDO::PARAM_STR);
-            $stmt -> bindParam(3, $middle, PDO::PARAM_STR);
-            $stmt -> bindParam(4, $contact, PDO::PARAM_INT);
-            $stmt-> bindParam(5, $address, PDO::PARAM_STR); 
-            $stmt-> bindParam(6, $email, PDO::PARAM_STR);
-            $stmt -> bindParam(7, $tax, PDO::PARAM_INT);
-            $response = $stmt -> execute();
-
-        }
+    class Dashboard extends db{
 
         public function fetch_type_data(){
-           $sql = "SELECT * FROM borrowers";
+           $sql = "SELECT COUNT(*) AS customer_count FROM customers;";
            $stmt = $this -> connect() -> prepare($sql);
            $stmt -> execute();
            $result = $stmt -> fetchAll(PDO::FETCH_ASSOC);
@@ -69,19 +56,7 @@
                 return $result;
                 
             }
-
-            public function borrowers(){
-                $sql = "SELECT COUNT(*) AS active_borrowers FROM borrowers";
-                $stmt = $this -> connect() -> prepare($sql);
-                $stmt -> execute();
-                $borrower = $stmt -> fetchAll(PDO::FETCH_ASSOC);
-                return $borrower;
-            }
     };
-
-                // $type1 = new Borrow();
-                // $borrower = $type1 -> borrowers();
-                
  
 
         //   echo $type1 -> add_borrower('jude', 'carrista', 'caristatu', 90, 'kasko', 'sss@gmaail.com',1122);
