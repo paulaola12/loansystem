@@ -2,12 +2,13 @@
 
 session_start();
 include "../classes/planclass.php";
+include_once "../guards/cleaner.php";
 
 if($_POST){
     if(isset($_POST["btn"])){
-        $plan = $_POST['plan'];
-        $interest = $_POST['interest'];
-        $overdue = $_POST['overdue'];
+        $plan = cleaner($_POST['plan']);
+        $interest = cleaner($_POST['interest']);
+        $overdue = cleaner($_POST['overdue']);
 
         // echo $plan, $interest, $overdue;
 

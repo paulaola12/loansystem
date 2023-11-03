@@ -1,12 +1,13 @@
 <?php
 session_start();
 include_once "../classes/payments.php";
+include_once "../guards/cleaner.php";
     if($_POST){
         if(isset($_POST["btn"])){
             $id = $_POST['ref'];
-            $payee = $_POST['payee'];
-            $amount = $_POST["amount"];
-            $penalty = $_POST["penalty"];
+            $payee = cleaner($_POST['payee']);
+            $amount = cleaner($_POST["amount"]);
+            $penalty = cleaner($_POST["penalty"]);
             
             // echo $id, $payee, $amount, $penalty;
 

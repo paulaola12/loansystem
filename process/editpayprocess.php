@@ -2,12 +2,13 @@
 session_start();
 include_once "../classes/planclass.php";
 include_once "../classes/payments.php";
+include_once "../guards/cleaner.php";
     if($_POST){
         if(isset($_POST["btn"])){
             $id = $_POST['id'];
-            $payee = $_POST['payee'];
-            $lid = $_POST['lid'];
-            $amount = $_POST['amount'];
+            $payee = cleaner($_POST['payee']);
+            $lid = cleaner($_POST['lid']);
+            $amount = cleaner($_POST['amount']);
 
             // echo $id, $payee, $lid, $amount;
 

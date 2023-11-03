@@ -2,12 +2,13 @@
 <?php
 session_start();
  include "../classes/loantypewrite.php";
+ include_once "../guards/cleaner.php";
  
 
   if($_POST){
         if(isset($_POST["btn"])){
-            $loan_type = $_POST["loan_type"];
-            $loan_desc = $_POST["loan_desc"];
+            $loan_type = cleaner($_POST["loan_type"]);
+            $loan_desc = cleaner($_POST["loan_desc"]);
 
             //validation
 

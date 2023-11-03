@@ -1,11 +1,12 @@
 <?php
 session_start();
 include_once "../classes/planclass.php";
+include_once "../guards/cleaner.php";
     if($_POST){
         if(isset($_POST["btn"])){
             $id = $_POST['ida'];
-            $loan_type = $_POST['loan_type'];
-            $loan_desc = $_POST["description"];
+            $loan_type = cleaner($_POST['loan_type']);
+            $loan_desc = cleaner($_POST["description"]);
 
             if(empty($loan_type) || empty($loan_desc)){
                 $_SESION["edit"] ="All Fields are Required";

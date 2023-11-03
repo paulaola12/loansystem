@@ -1,15 +1,16 @@
 <?php
 session_start();
 include_once '../classes/loans.php';
+include_once "../guards/cleaner.php";
 
     if($_POST){
         if(isset($_POST["btn"])){
             $ref = $_POST['random'];
-            $borrower = $_POST['borrower'];
-            $plan = $_POST['loan_plans'];
-            $type = $_POST['loan_type'];
-            $amount = $_POST["loan_amount"];
-            $purpose = $_POST["loan_purpose"];
+            $borrower = cleaner($_POST['borrower']);
+            $plan = cleaner($_POST['loan_plans']);
+            $type = cleaner($_POST['loan_type']);
+            $amount = cleaner($_POST["loan_amount"]);
+            $purpose = cleaner($_POST["loan_purpose"]);
            
             // echo $ref, $borrower, $plan, $type, $amount,$purpose ;
 

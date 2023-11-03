@@ -4,9 +4,9 @@ include_once "../classes/planclass.php";
     if($_POST){
         if(isset($_POST["btn"])){
             $id = $_POST['id'];
-            $plan = $_POST['months'];
-            $interest = $_POST['interest'];
-            $overdue = $_POST["overdue"];
+            $plan = cleaner($_POST['months']);
+            $interest = cleaner($_POST['interest']);
+            $overdue = cleaner($_POST["overdue"]);
 
         //    echo $id, $plan, $interest;
 
