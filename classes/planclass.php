@@ -72,11 +72,33 @@
             $plans = $stmt -> fetchAll(PDO::FETCH_ASSOC);
             return $plans;
         }
+
+        public function sumPlan(){
+            $sql ="SELECT SUM(interest_percentage) AS intrestP FROM loan_plan";
+            $stmt = $this -> connect() -> prepare($sql);
+            $stmt -> execute();
+            $sumP = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+            return $sumP;
+        }
+
+        public function sumPenalty(){
+            $sql ="SELECT SUM(penalty_rate) AS penalt FROM loan_plan";
+            $stmt = $this -> connect() -> prepare($sql);
+            $stmt -> execute();
+            $sumPenalty = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+            return $sumPenalty;
+        }
     }
         // $type2 = new plan();
-        // $result = $type2 -> read();
+        // $sumP = $type2 -> sumPlan();
         // echo '<pre>';
-        // print_r($result);
+        // print_r($sumP);
+        // echo '</pre>';
+
+        // $type2 = new plan();
+        // $sumPenalty = $type2 -> sumPenalty();
+        // echo '<pre>';
+        // print_r($sumPenalty);
         // echo '</pre>';
 
         // $result = new plan();

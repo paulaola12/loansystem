@@ -4,7 +4,7 @@ session_start();
   include "classes/loantypewrite.php";
   if(isset($_GET["id"])){
     $id = $_GET["id"];
-    echo $id;
+    // echo $id;
     $type1 = new LoanT();
     $result = $type1 -> fetch_details($id);
   }

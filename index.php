@@ -8,11 +8,25 @@
   $response = $type -> active();
   $data = new Payments();
   $today = $data -> pay_today();
+  // print_r($today);
   $type1 = new Borrow();
   $borrower = $type1 -> borrowers();
   $type1 = new Plan();
   $plans = $type1 -> current_plans();
-  print_r($plans)
+  // loan sum total
+  $type = new Loans();
+  $sum = $type -> sumT();
+  // total interest rate
+  $type2 = new plan();
+  $sumP = $type2 -> sumPlan();
+  // total penalty rate
+  $type2 = new plan();
+  $sumPenalty = $type2 -> sumPenalty();
+  // echo '<pre>';
+  // print_r($sumPenalty);
+  // echo '</pre>';
+  // print_r($sum);
+  // print_r($plans)
   // print_r($today);
   // print_r($response)
   // $rest = $response['actyive_loan'];
@@ -111,7 +125,19 @@
                           <div class="row">
                             <div class="col-12" style="height:160px;">
                             <p class="text-white mt-4 " style="font-size:17px">Total Receivables<i class="fa-solid fa-user mx-1"></i></p><br>
-                            <p class="text-white text-center" style="font-size:19px; margin-top:-10px">6</p>
+                             <?php
+                              foreach($sum as $sumT){
+                                $total_amount = $sumT['total_amount'];
+                              }
+                              foreach($sumP as $sumInt){
+                                $total_interest = $sumInt['intrestP'];
+                              }
+                              foreach($sumPenalty as $sumPenal){
+                                $total_penalty = $sumPenal['penalt'];
+                              }
+                              $total_receivables = $total_amount + $total_interest + $total_penalty
+                             ?>
+                            <p class="text-white text-center" style="font-size:19px; margin-top:-10px"><?php echo number_format($total_receivables)?></p>
                             </div>
                             <div class="col bg-white" style="height: 70px;">
                             <div class="text-center mt-2">

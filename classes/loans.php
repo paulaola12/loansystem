@@ -119,12 +119,19 @@ include_once "db.php";
                 return $response;
             }
 
+            public function sumT(){
+                $sql ="SELECT SUM(amount) AS total_amount FROM loan_list";
+                $stmt = $this -> connect() -> prepare($sql);
+                $stmt -> execute();
+                $sum = $stmt -> fetchAll(PDO::FETCH_ASSOC);
+                return $sum;
+            }
+
      }
                 // $type = new Loans();
-                // $response = $type -> active();
-                // print_r($response)
-                //  $type = new Loans();
-                // echo $type -> delete(1);
+                // $sum = $type -> sumT();
+                // print_r($sum);
+              
 
             // $type1 = new Loans();
             // $result = $type1 -> ref();
