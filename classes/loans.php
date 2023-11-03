@@ -79,14 +79,15 @@ include_once "db.php";
             return $result;
          }
 
-            public function edit($id, $type, $purpose, $amount, $plan){
-                $sql = "UPDATE loan_list SET loan_type_id = ?, plan_id = ?, purpose = ?, amount=? WHERE loan_list.borrower_id = ? ";
+            public function edit($id, $type, $purpose, $amount, $plan, $authorise){
+                $sql = "UPDATE loan_list SET loan_type_id = ?, plan_id = ?, purpose = ?, amount=?,status = ? WHERE loan_list.borrower_id = ? ";
                 $stmt = $this -> connect() -> prepare($sql);
                 $stmt -> bindParam(1, $type, PDO::PARAM_INT);
                 $stmt -> bindParam(2, $plan, PDO::PARAM_INT);
                 $stmt -> bindParam(3, $purpose, PDO::PARAM_STR);
                 $stmt -> bindParam(4, $amount, PDO::PARAM_INT);
-                $stmt -> bindParam(5, $id, PDO::PARAM_INT);
+                $stmt -> bindParam(5, $authorise, PDO::PARAM_INT);
+                $stmt -> bindParam(6, $id, PDO::PARAM_INT);
                 $response = $stmt -> execute();
                 if($response){
                     return true;

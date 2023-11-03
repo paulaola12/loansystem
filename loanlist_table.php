@@ -32,6 +32,7 @@
                                         foreach($rows as $row){
                                     ?>
                                   <tr>
+                                    
                                     <td><?php $row['borrower_id']?></td>
                                     <td>
                                         <p>Name:<?php echo $row['firstname']?>, <?php echo $row['lastname']?></p>
@@ -39,7 +40,7 @@
                                         <p>Address:<?php echo $row['address']?> </p>
                                     </td>
                                     <td>
-                                        <p>Reference:<?php $row['ref_no']?></p>
+                                        <p>Reference:<?php echo  $row['ref_no']?></p>
                                         <p>Loan Type:<?php echo $row['loan_type']?></p>
                                         <p>Plan:<?php echo $row['loan_months']?> Years [<?php echo $row['interest_percentage']?>%, <?php echo $row['penalty_rate']?>%]</p>
                                         <p>Amount:<?php echo $row['amount']?> </p>

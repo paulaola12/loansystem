@@ -8,8 +8,9 @@ include_once "../classes/loans.php";
             $type = $_POST['loantype'];
             $amount = $_POST["amount"];
             $purpose = $_POST['purpose'];
+            $authorise = $_POST['authorise'];
 
-        //    echo $id,$plan,$type,$amount,$purpose;
+           echo $id,$plan,$type,$amount,$purpose,$authorise;
 
         if(empty($amount) || empty($purpose)){
             $_SESSION["loanerror"] = "Please input all the required field";
@@ -23,7 +24,7 @@ include_once "../classes/loans.php";
         }
 
         $type1 = new Loans();
-        $response = $type1 -> edit($id, $type, $purpose, $amount, $plan);
+        $response = $type1 -> edit($id, $type, $purpose, $amount, $plan,$authorise);
 
         if($response){
         $_SESSION['loanerror'] = 'Update Was Successful';

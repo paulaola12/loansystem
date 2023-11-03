@@ -11,7 +11,7 @@
   $type1 = new LoanT();
   $loant = $type1 -> loantype();
   // echo "<pre>";
-  // print_r($loant);
+  // print_r($response);
   // echo "</pre>";
 ?>
         <!-- body -->

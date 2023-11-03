@@ -86,6 +86,19 @@ session_start();
                                 <textarea name="purpose" class="form-control" style="height: 50px"><?php echo $result['purpose']?></textarea>
                                 </div>
                             </div>
+
+                            <div class="row my-3"> 
+                                <div class="col-10">
+                                <label class=""> Authorise</label>
+                                <select name="authorise" class="form-control" style="height: 50px">
+                                  <option>For Approval</option>
+                                  <option value="1">Approved</option>
+                                  <option value="2">Released</option>
+                                  <option value="3">Complete</option>
+                                  <option value="4">Denied</option>
+                                </select>
+                                </div>
+                            </div>
                             <div class="row my-3">
                                 <div class="col-10">
                                     <button name="btn" class="text-center btn btn-primary btn-lg" >Save</button>
